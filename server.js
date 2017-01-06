@@ -6,11 +6,11 @@ var app = express();
 
 // openweather only accept http request
 app.use(function (req, res, next) {
-    if (req.headers["x-forwarded-proto"] === "http") {
-        next();
-    } else { // https
-        // console.log("http://" + req.hostname + ":" + PORT + req.url)
+    // localhost: does not have req.headers["x-forwarded-proto"]
+    if (req.headers["x-forwarded-proto"] === "https") {
         res.redirect("http://" + req.hostname + req.url);
+    } else {
+        next();
     }
 });
 
