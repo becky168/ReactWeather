@@ -1,4 +1,3 @@
-// "scripts": {"start": "node server.js"} => tell heroku how to start our app
 {
   "name": "boilerplate",
   "version": "1.0.0",
@@ -6,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js" // tell heroku how to start our app
   },
   "author": "Becky",
   "license": "MIT",
