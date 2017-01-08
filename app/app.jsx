@@ -19,6 +19,17 @@ var Weather = require("Weather");
 var About = require("About");
 var Examples = require("Examples");
 
+// require the css that the component need only inside the component
+// Load fundation
+// css!: css loader
+//       load css file 
+//       (by default, require doesn't know how to load css file)
+// style!: style loader
+//       inject css to the html file, so the style actually show up
+require("style!css!foundation-sites/dist/foundation.min.css");
+// fire up the foundation.
+$(document).foundation();
+
 // path: "/" => Render IndexRoute (component = weather)
 // path: "/about" => Render component = about
 ReactDOM.render(
