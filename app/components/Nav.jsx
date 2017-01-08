@@ -10,6 +10,7 @@ var React = require("react");
 var {Link, IndexLink} = require("react-router"); // is the same as "var Link = require("react-router").link"
 
 
+// 1.
 // var Nav = React.createClass({
 //     render: function () {
         /*
@@ -34,16 +35,61 @@ var {Link, IndexLink} = require("react-router"); // is the same as "var Link = r
 //     }
 // });
 
-// stateless functional component
-var Nav = (props) => {
-    return (
-        <div>
-            <h2>Nav Component</h2>
-            <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: "bold"}}>Get Weather</IndexLink>
-            <Link to="/about" activeClassName="active" activeStyle={{fontWeight: "bold"}}>About</Link>
-            <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: "bold"}}>Examples</Link>
-        </div>
-    );
-};
+// 2. stateless functional component (used for presentation component)
+// var Nav = (props) => {
+//     return (
+//         <div>
+//             <h2>Nav Component</h2>
+//             <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: "bold"}}>Get Weather</IndexLink>
+//             <Link to="/about" activeClassName="active" activeStyle={{fontWeight: "bold"}}>About</Link>
+//             <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: "bold"}}>Examples</Link>
+//         </div>
+//     );
+// };
+
+// 3. add fundation 
+// (and back to React.create class component definition
+// because it is no longer an presentation component, it has state)
+var Nav = React.createClass({
+    onSearch: function (e) {
+        e.preventDefault(); // prevent the page reload
+        alert("Not yet wired up!");
+    },
+    render: function () {
+        return (
+            <div className="top-bar">
+                <div className="top-bar-left">
+                    <ul className="menu">
+                        <li className="menu-text">
+                            React Weather App
+                        </li>
+                        <li>
+                            <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: "bold"}}>Get Weather</IndexLink>
+                        </li>
+                        <li>
+                            <Link to="/about" activeClassName="active" activeStyle={{fontWeight: "bold"}}>About</Link>
+                        </li>
+                        <li>
+                            <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: "bold"}}>Examples</Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className="top-bar-right">
+                    <form onSubmit={this.onSearch}>
+                        <ul className="menu">
+                            <li>
+                                <input type="search" placeholder="Search Weather"/>
+                            </li>
+                            <li>
+                                <input type="submit" className="button" value="Get Weather"/>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        );
+    }
+});
+
 
 module.exports = Nav;
