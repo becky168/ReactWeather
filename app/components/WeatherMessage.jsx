@@ -20,9 +20,16 @@ var React = require("react");
 // };
 
 // 進階版本 stateless functional component
+// var WeatherMessage = ({temp, location}) => {
+//     return (
+//         <h3>It is {temp} in {location}.</h3>
+//     );
+// };
+
+// add fundation
 var WeatherMessage = ({temp, location}) => {
     return (
-        <h3>It is {temp} in {location}.</h3>
+        <h3 className="text-center">It is {temp} in {location}.</h3>
     );
 };
 
