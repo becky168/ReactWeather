@@ -16,13 +16,27 @@ var Nav = require("Nav");
 // });
 
 // stateless functional component
+// var Main = (props) => {
+//     /*props become arguments when use stateless functional component*/
+//     return (
+//         <div>
+//             <Nav/>
+//             <h2>Main Component</h2>
+//             {props.children}
+//         </div>
+//     );
+// };
+
+// add fundation
 var Main = (props) => {
-    /*props become arguments when use stateless functional component*/
     return (
         <div>
             <Nav/>
-            <h2>Main Component</h2>
-            {props.children}
+            <div className="row">
+                <div className="columns medium-6 large-4 small-centered">
+                    {props.children}
+                </div>
+            </div>
         </div>
     );
 };
