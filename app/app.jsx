@@ -32,7 +32,9 @@ $(document).foundation();
 
 // App css
 // specify the module we want to load
-require("style!css!applicationStyles");
+// node-sass: turn sass into css file
+// sass-loader: read the sass/scss file
+require("style!css!sass!applicationStyles");
 
 // path: "/" => Render IndexRoute (component = weather)
 // path: "/about" => Render component = about
