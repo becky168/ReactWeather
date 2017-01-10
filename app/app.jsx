@@ -30,6 +30,10 @@ require("style!css!foundation-sites/dist/foundation.min.css");
 // fire up the foundation.
 $(document).foundation();
 
+// App css
+// specify the module we want to load
+require("style!css!applicationStyles");
+
 // path: "/" => Render IndexRoute (component = weather)
 // path: "/about" => Render component = about
 ReactDOM.render(
