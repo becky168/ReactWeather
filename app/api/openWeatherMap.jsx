@@ -31,8 +31,17 @@ module.exports = {
             } else {
                 return res.data.main.temp;
             }
-        }, function (res) {
-            throw new Error(res.data.message);
-        });
+        },
+        // Original error handler
+        // function (res) {
+        //     throw new Error(res.data.message);
+        // }
+        // Update error handler
+        function (err) {
+            // throw new Error(err.response.data.message);
+            // or use
+            throw new Error("Unable to fetch weather for that location");
+        }
+        );
     }
 };
